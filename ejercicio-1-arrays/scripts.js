@@ -58,15 +58,15 @@ const fichas = [
 const result = ((fichas) => ({
     nPacientes: fichas.length,
     nMayoresEdad: fichas
-        .filter(ficha => ficha.paciente.edad > 18)
+        .filter(({ paciente: { edad } }) => edad > 18)
         .length,
     nHombresDiabeticos: fichas
-        .filter(ficha => ficha.paciente.sexo === 'H' && ficha.dieta === 'Diabetes')
+        .filter(({ paciente: { sexo }, dieta }) => sexo === 'H' && dieta === 'Diabetes')
         .length,
-    totalDiasIngreso: fichas.reduce((acc, ficha) => acc + ficha.diasIngresado, 0),
+    totalDiasIngreso: fichas.reduce((acc, { diasIngresado }) => acc + diasIngresado, 0),
     mediaEdadMujeres: fichas
-        .filter(ficha => ficha.paciente.sexo === 'M')
-        .reduce((acc, ficha) => acc + (ficha.paciente.edad / fichas.filter(ficha => ficha.paciente.sexo === 'M').length), 0),
+        .filter(({ paciente: { sexo } }) => sexo === 'M')
+        .reduce((acc, { paciente: { edad } }, i, mujeres) => acc + (edad / mujeres.length), 0),
 }))(fichas)
 
 console.log(result);
