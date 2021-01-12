@@ -5,7 +5,35 @@
     <title>React - Hola Mundo</title>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="script.func.js" defer></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="script.jsx.js" type="text/babel" defer></script>
+    <style>
+        html,
+        body {
+            display: block;
+            box-sizing: border-box;
+            border: none;
+            margin: 0;
+            padding: 0;
+            font-family: JetBrains Mono, monospace;
+            font-size: 16px;
+        }
+
+        .heading h1 {
+            display: block;
+            padding: 1rem 1.125rem;
+            margin: 0 0 1.5rem;
+            background-color: #c4c4c1;
+            color: #040404;
+            font-size: 1.7rem;
+        }
+
+        p {
+            display: block;
+            padding: 0.25rem 1.125rem;
+            margin: 0 0 1.1rem;
+        }
+    </style>
 </head>
 
 <body>
