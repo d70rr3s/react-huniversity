@@ -62,12 +62,12 @@ const App = () => {
         </div>
         <div className="acciones">
           <span className="numero">{numero}</span>
-          <a href="llamar" 
-             className={`llamar${numeroCompleto ? ' activo' : ''}${llamando ? ' off' : ''}`} 
-             onClick={llamar}>Llamar</a>
-          <a href="colgar" 
-             className={`colgar${llamando ? ' activo' : ' off'}`}
-             onClick={colgar}>Colgar</a>
+          { !llamando && <a href="llamar" 
+             className={`llamar${numeroCompleto ? ' activo' : ''}`} 
+             onClick={llamar}>Llamar</a> }
+          { llamando && <a href="colgar" 
+             className={'colgar activo'}
+             onClick={colgar}>Colgar</a> }
         </div>
       </main>
     </div>
