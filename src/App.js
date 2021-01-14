@@ -4,6 +4,7 @@ const App = () => {
   const teclado = [...[...Array(10).keys()].slice(1), 0];
   const [numero, setNumero] = useState('');
   const [llamando, setLlamando] = useState(false);
+  const [timeout, setTimeoutHandler] = useState(null);
   const numeroCompleto = numero.length === 9;
   const borrarActivado = numero.length > 0 && !llamando;
 
@@ -30,9 +31,11 @@ const App = () => {
     }
 
     setLlamando(true);
-    setTimeout(() => {
-      doColgar();
-    }, 10000);
+    setTimeoutHandler(
+      setTimeout(() => {
+        doColgar();
+      }, 10000)
+    );
   }
 
   const colgar = (e) => {
@@ -41,6 +44,7 @@ const App = () => {
       return;
     }
     doColgar();
+    clearTimeout(timeout);
   }
 
   const doColgar = () => {
