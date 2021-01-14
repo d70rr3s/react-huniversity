@@ -14,7 +14,7 @@
 runtime: nodejs14
 
 handlers:
-  - url: /static
+  - url: /
     static_dir: build
 
   - url: /.*
